@@ -8,7 +8,7 @@ public class Main {
 
         char[] zahlenArray = {'0', '1', '2', '3', '4', '5', '6', '7', '8', '9'};
 
-        String[] teile = null;
+        String[] teile;
         String ip;
 
         while (true) {
