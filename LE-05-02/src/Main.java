@@ -6,14 +6,15 @@ public class Main {
 
         Scanner scanner = new Scanner(System.in);
 
-        char[] zahlenArray = {'0','1','2','3','4', '5','6','7','8','9'};
+        char[] zahlenArray = {'0', '1', '2', '3', '4', '5', '6', '7', '8', '9'};
 
         String[] teile = null;
+        String ip;
 
         while (true) {
 
             System.out.print("IP-Adresse eingeben: ");
-            String ip = scanner.nextLine();
+            ip = scanner.nextLine();
 
             teile = ip.split("\\.");
 
@@ -66,34 +67,26 @@ public class Main {
             break;
         }
 
-        int[] ipArray = new int[4];
+        String[] binar = new String[4];
+        String[] oktal = new String[4];
+        String[] hex = new String[4];
 
         for (int i = 0; i < 4; i++) {
-            ipArray[i] = Integer.parseInt(teile[i]);
+
+            int zahl = Integer.parseInt(teile[i]);
+
+            binar[i] = Integer.toBinaryString(zahl);
+            oktal[i] = Integer.toOctalString(zahl);
+            hex[i] = Integer.toHexString(zahl).toUpperCase();
         }
 
-        System.out.println("Dezimal: "
-                + ipArray[0] + "."
-                + ipArray[1] + "."
-                + ipArray[2] + "."
-                + ipArray[3]);
+        String binarString = String.join(".", binar);
+        String oktalString = String.join(".", oktal);
+        String hexString = String.join(".", hex);
 
-        System.out.println("Binär: "
-                + Integer.toBinaryString(ipArray[0]) + "."
-                + Integer.toBinaryString(ipArray[1]) + "."
-                + Integer.toBinaryString(ipArray[2]) + "."
-                + Integer.toBinaryString(ipArray[3]));
-
-        System.out.println("Oktal: "
-                + Integer.toOctalString(ipArray[0]) + "."
-                + Integer.toOctalString(ipArray[1]) + "."
-                + Integer.toOctalString(ipArray[2]) + "."
-                + Integer.toOctalString(ipArray[3]));
-
-        System.out.println("Hex: "
-                + Integer.toHexString(ipArray[0]).toUpperCase() + "."
-                + Integer.toHexString(ipArray[1]).toUpperCase() + "."
-                + Integer.toHexString(ipArray[2]).toUpperCase() + "."
-                + Integer.toHexString(ipArray[3]).toUpperCase());
+        System.out.println("Dezimal: " + ip);
+        System.out.println("Binär: " + binarString);
+        System.out.println("Oktal: " + oktalString);
+        System.out.println("Hex: " + hexString);
     }
 }
