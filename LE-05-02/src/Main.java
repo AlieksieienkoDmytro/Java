@@ -6,8 +6,6 @@ public class Main {
 
         Scanner scanner = new Scanner(System.in);
 
-        char[] zahlenArray = {'0', '1', '2', '3', '4', '5', '6', '7', '8', '9'};
-
         String[] teile;
         String ip;
 
@@ -31,17 +29,7 @@ public class Main {
 
                 for (char c : eingabe) {
 
-                    boolean gefunden = false;
-
-                    for (char zahl : zahlenArray) {
-
-                        if (c == zahl) {
-                            gefunden = true;
-                            break;
-                        }
-                    }
-
-                    if (!gefunden) {
+                    if (!Character.isDigit(c)) {
                         gultig = false;
                         break;
                     }
